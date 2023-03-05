@@ -1,0 +1,146 @@
+<!DOCTYPE HTML>
+<HTML dir="ltr" lang="zh-TW">
+	<HEAD>
+		<META charset="UTF-8">
+		<META name="viewport" content="width=device-width, initial-scale=1.0">
+		<LINK href="http://fonts.googleapis.com/earlyaccess/cwtexyen.css" rel="stylesheet" media="all" type="text/css">
+		<!--<LINK href="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/sunny/jquery-ui.css" rel="stylesheet" media="all" type="text/css">-->
+		<LINK href="/STYLE/font-awesome.min.css" rel="stylesheet" media="all" type="text/css">
+		<LINK href="/STYLE/common.css" rel="stylesheet" media="all" type="text/css">
+		<LINK href="/STYLE/history.css" rel="stylesheet" media="all" type="text/css">
+		<SCRIPT src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></SCRIPT>
+		<!--<SCRIPT src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></SCRIPT>-->
+		<!--<SCRIPT src="//ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/i18n/jquery-ui-i18n.min.js"></SCRIPT>-->
+		<SCRIPT src="/SCRIPT/gcse.js"></SCRIPT>
+		<SCRIPT src="/SCRIPT/history.js"></SCRIPT>
+		<TITLE>e95 易購物商城 &#187; 會員個人訂單歷程</TITLE>
+	</HEAD>
+	<!--1.0-->
+	<BODY>
+		<DIV>
+			<DIV><HEADER><DIV><A id="home" href="/"><IMG alt="logo" src="/IMG/logo.png"></A><UL class="cF"><LI><A href="/logOut.asp">登出</A></LI><LI><B>|</B></LI><LI><A href="/me.asp">我的帳號</A></LI><LI><B>|</B></LI><LI><A href="/cart/"><SPAN>我的購物車</SPAN><SPAN class="fa fa-shopping-cart fa-lg" id="shoppingCart">&nbsp;</SPAN></A></LI></UL><DIV id="gcse"><gcse:search linktarget="_self" enableautocomplete="true"></gcse:search></DIV></DIV></HEADER></DIV>
+			<DIV>
+				<DIV>
+					<NAV>
+						<DIV id="nav"><TABLE><TR><TD><A href="/"><SPAN>首頁</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/announcements.asp"><SPAN>最新消息</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/register.asp"><SPAN>線上招商</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/cPanel/"><SPAN>店家登入</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/about.htm"><SPAN>關於我們</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/mofo/"><SPAN>店家分類</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/feedback.htm"><SPAN>意見回應</SPAN></A></TD><TD><B>|</B></TD><TD><A href="/faq.htm"><SPAN>常見問答</SPAN></A></TD><TD><B>|</B></TD><TD><A href="https://member.allpay.com.tw/MemberReg/ChooseMembership" target="_blank">店家金流註冊</A></TD></TR></TABLE></DIV>
+						<DIV class="cF">
+							<ASIDE>
+								<A id="aside1">會員管理</A>
+								<A id="aside2" href="/me.asp">基本資料</A>
+								<A id="aside3" href="/history.asp">訂單查詢</A>
+								<A href="/shadow.asp">變更密碼</A>
+							</ASIDE>
+							<DIV>
+								<H1 id="asideName">會員個人訂單歷程</H1>
+								<P>&#160;</P>
+								<FORM id="pagination" action="{pagination/@action}">
+									<TABLE id="list">
+										<THEAD>
+											<TR>
+												<TH>訂單編號</TH>
+												<TH>日期</TH>
+												<TH>店家名稱</TH>
+												<TH>總價</TH>
+											</TR>
+										</THEAD>
+										<TFOOT>
+											<TR>
+												<TD colspan="4">
+													<DIV class="fR">
+														<A class="button fa fa-fast-backward paginate" title="第一頁" tabindex="{pagination/@first}">&#160;</A>
+														<A class="button fa fa-backward paginate" title="上一頁" tabindex="{pagination/@previous}">&#160;</A>
+														<SPAN style="margin:0 3px">
+															<LABEL>
+																<SPAN>每頁</SPAN>
+																<INPUT class="numeric" maxlength="2" name="s" type="text" value="{@size}"/>
+																<SPAN>筆</SPAN>
+															</LABEL>
+															<SPAN>：</SPAN>
+															<LABEL>
+																<SPAN>第</SPAN>
+																<SELECT name="p">
+																	<xsl:apply-templates select="*"/>
+																</SELECT>
+																<SPAN>&#47;</SPAN>
+																<SPAN>
+																	<xsl:value-of select="pagination/@totalPages"/>
+																</SPAN>
+																<SPAN>頁</SPAN>
+															</LABEL>
+															<SPAN>&#40;共</SPAN>
+															<SPAN>
+																<xsl:value-of select="pagination/@totalElements"/>
+															</SPAN>
+															<SPAN>筆&#41;</SPAN>
+														</SPAN>
+														<A class="button fa fa-forward paginate" title="下一頁" tabindex="{pagination/@next}">&#160;</A>
+														<A class="button fa fa-fast-forward paginate" title="最後頁" tabindex="{pagination/@last}">&#160;</A>
+													</DIV>
+												</TD>
+											</TR>
+										</TFOOT>
+										<TBODY>
+											<xsl:for-each select="list/row">
+												<TR class="packet">
+													<TD class="monospace textAlignCenter">
+														<A class="merchantTradeNo" tabindex="{merchantTradeNo}">
+															<xsl:value-of select="merchantTradeNo"/>
+														</A>
+													</TD>
+													<TD class="monospace textAlignCenter">
+														<xsl:value-of select="merchantTradeDate"/>
+													</TD>
+													<TD>
+														<xsl:value-of select="boothName"/>
+													</TD>
+													<TD class="monospace textAlignRite">
+														<SPAN>&#36;</SPAN>
+														<xsl:value-of select="format-number(totalAmount,'###,###')"/>
+													</TD>
+												</TR>
+												<TR style="display:none">
+													<TD colspan="4">
+														<TABLE class="cart">
+															<THEAD>
+																<TR>
+																	<TH>商品名稱</TH>
+																	<TH>規格</TH>
+																	<TH>數量</TH>
+																	<TH>小計</TH>
+																</TR>
+															</THEAD>
+															<TBODY>
+																<xsl:for-each select="cart/*">
+																	<TR>
+																		<TD class="textAlignLeft">
+																			<xsl:value-of select="merchandiseName"/>
+																		</TD>
+																		<TD class="textAlignLeft">
+																			<xsl:value-of select="specification"/>
+																		</TD>
+																		<TD class="monospace textAlignCenter">
+																			<xsl:value-of select="quantity"/>
+																		</TD>
+																		<TD class="monospace textAlignRite">
+																			<SPAN>&#36;</SPAN>
+																			<xsl:value-of select="format-number(subTotal,'###,###')"/>
+																		</TD>
+																	</TR>
+																</xsl:for-each>
+															</TBODY>
+														</TABLE>
+													</TD>
+												</TR>
+											</xsl:for-each>
+										</TBODY>
+									</TABLE>
+								</FORM>
+							</DIV>
+						</DIV>
+						<DIV id="booths"><UL><LI title="KinG FashioN"><A href="/store/24/"><IMG alt="KinG FashioN" src="/logo/24.png"></A></LI><LI title="晨發商號"><A href="/store/46/"><IMG alt="晨發商號" src="/logo/46.png"></A></LI><LI title="紅瓦厝創意生活美食館"><A href="/store/30/"><IMG alt="紅瓦厝創意生活美食館" src="/logo/30.png"></A></LI><LI title="好運稻食品企業有限公司"><A href="/store/36/"><IMG alt="好運稻食品企業有限公司" src="/logo/36.png"></A></LI><LI title="慶和大業有限公司"><A href="/store/25/"><IMG alt="慶和大業有限公司" src="/logo/25.png"></A></LI><LI title="忠碁科技有限公司"><A href="/store/38/"><IMG alt="忠碁科技有限公司" src="/logo/38.png"></A></LI><LI title="宏交電話器材有限公司"><A href="/store/35/"><IMG alt="宏交電話器材有限公司" src="/logo/35.png"></A></LI><LI title="亞諾資訊系統有限公司"><A href="/store/63/"><IMG alt="亞諾資訊系統有限公司" src="/logo/63.png"></A></LI></UL></DIV><FOOTER><DIV><TABLE><TR><TD><UL><LI><H3>易購物商城</H3></LI><LI><ADDRESS>363 苗栗縣公館鄉中義村9鄰216-1號</ADDRESS></LI><LI><ADDRESS>電話：(03)723-3178</ADDRESS></LI><LI><ADDRESS>傳真：(03)723-2533</ADDRESS></LI><LI><A style="border-bottom:1px solid" href="mailto:e95195@gmail.com">e95195@gmail.com</A></LI></UL></TD><TD><UL><LI><H3>購物須知</H3></LI><LI><A href="/privacy.htm">個人隱私權</A></LI><LI><A href="/policy.htm">退換貨條款</A></LI><LI><A href="/statement.htm">購物權利聲明</A></LI></UL></TD><TD><UL><LI><H3>歡迎店家加入</H3></LI><LI><A href="/register.asp">加入 e95 店家</A></LI><LI><A href="javascript:void(0);" target="_blank">加入小農市集</A></LI><LI><A href="/mofo/">店家分類</A></LI></UL></TD><TH><A style="color:#3664A2" href="https://www.facebook.com/E95%E6%98%93%E8%B3%BC%E7%89%A9%E5%95%86%E5%9F%8E-1558147357830570/" target="_blank"><IMG alt="FB-fLogo-Blue-printpackaging" src="/IMG/facebook.png"></A><A style="color:#DC4E41" href="https://developers.google.com/+/branding-guidelines" target="_blank"><IMG alt="btn_google+_dark_normal_ios" src="/IMG/google%2B.png"></A><IMG alt="QR-code" src="/IMG/qrCode.png"></TH></TR></TABLE></DIV></FOOTER><DIV><P class="textAlignCenter" style="cursor:default">網站所有權 &copy; 2016 易購物商城</P></DIV>
+					</NAV>
+				</DIV>
+			</DIV>
+		</DIV>
+	</BODY>
+</HTML>

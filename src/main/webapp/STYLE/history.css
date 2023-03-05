@@ -1,0 +1,31 @@
+/**
+ * 店家簡介
+ *
+ * @author:	P-C Lin (a.k.a 高科技黑手)
+ */
+ASIDE{border:1px solid #333;float:left;width:190px}
+ASIDE>A{padding:12px;display:block;overflow:hidden;color:#333;font-family:'cwTeXYen',sans-serif;font-size:24px;text-align:center;text-decoration:none;text-overflow:ellipsis;white-space:nowrap;cursor:default}
+ASIDE>A[href]{cursor:pointer}
+ASIDE>A[href]:hover{font-weight:bold}
+A#aside1{color:#FFF;background-color:#333}
+A#aside2{color:#FFF;background-color:#FF5F5E}
+A#aside3{color:#FFF;background-color:#FE9903}
+ASIDE+DIV{border-top:3px solid #256FB8;float:right;width:783px}
+H1#asideName{margin:0;padding:12px;display:inline-block;color:#FFF;background-color:#79AE3D;font-family:'cwTeXYen',sans-serif;font-size:36px;cursor:default}
+
+FORM#pagination A.button{padding:3px;border-radius:3px;color:#FFF;background-color:#EC9F2E;text-align:center;cursor:pointer}
+FORM#pagination INPUT[type='text'].numeric{border:1px dotted #333;width:32px;font-family:monospace;text-align:center}
+
+TABLE#list{border:1px solid #333;border-collapse:collapse;border-spacing:6px;width:100%}
+TABLE#list>THEAD>TR>TH{padding:6px;color:#FFF;background-color:#EC9F2E;font-family:'cwTeXYen',sans-serif;font-size:24px;cursor:default}
+TABLE#list>TBODY>TR>TD{padding:6px;border-width:0 0 1px 1px;border-color:#333;border-style:solid}
+TABLE#list>TBODY>TR>TD:first-child{border-left-width:0}
+TABLE#list>TBODY>TR>TD[colspan='4']{padding:0}
+TABLE#list>TBODY>TR>TD>A.merchantTradeNo{color:#EC9F2E;cursor:pointer}
+TABLE#list>TBODY>TR>TD>A.merchantTradeNo:hover{font-weight:bold}
+
+TABLE.cart{border-collapse:collapse;border-spacing:6px;width:100%}
+TABLE.cart>THEAD>TR>TH{padding:6px;border-left:1px solid #333;color:#000;background-color:#F6F6F6;font-family:'cwTeXYen',sans-serif;font-size:16px;cursor:default}
+TABLE.cart>THEAD>TR>TH:first-child{border-left:0}
+TABLE.cart>TBODY>TR>TD{padding:6px;border-width:1px 0 0 1px;border-color:#333;border-style:solid}
+TABLE.cart>TBODY>TR>TD:first-child{border-left-width:0}

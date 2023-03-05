@@ -1,0 +1,20 @@
+/**
+ * 最新消息
+ *
+ * @author:	P-C Lin (a.k.a 高科技黑手)
+ */
+ASIDE{float:left;width:192px}
+ASIDE+DIV{border-top:3px solid #256FB8;float:right;width:783px}
+H1#announcements{margin:0;padding:12px;display:inline-block;color:#FFF;background-color:#F15E60;font-family:'cwTeXYen',sans-serif;font-size:36px;cursor:default}
+TABLE#feedback{border-collapse:separate;border-spacing:6px}
+TABLE#feedback TH,TABLE#feedback TD{padding:6px}
+TABLE#feedback TH{text-align:right}
+TABLE#feedback TH.must:before{content:'*';color:#C00}
+TABLE#feedback TD{text-align:left}
+TABLE#feedback LABEL{font-family:'cwTeXYen',sans-serif}
+TABLE#feedback LABEL:after{content:'：'}
+FORM INPUT[type='text'],FORM TEXTAREA{padding:6px;border:1px dotted #333;width:66%}
+FORM INPUT[type='text']:focus,FORM TEXTAREA:focus{border-style:solid}
+FORM INPUT[type='reset']{float:left}
+FORM INPUT[type='submit']{float:right}
+FORM TEXTAREA{width:480px;height:320px;resize:none}

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="persistenceUnit" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <non-jta-data-source>java:comp/env/jdbc/AnochMallDS</non-jta-data-source>
+    <class>tw.com.e95.entity.AccessLog</class>
+    <class>tw.com.e95.entity.AllPayHistory</class>
+    <class>tw.com.e95.entity.Banner</class>
+    <class>tw.com.e95.entity.Bulletin</class>
+    <class>tw.com.e95.entity.Cart</class>
+    <class>tw.com.e95.entity.Forgot</class>
+    <class>tw.com.e95.entity.Regular</class>
+    <class>tw.com.e95.entity.Staff</class>
+    <class>tw.com.e95.entity.InternalFrame</class>
+    <class>tw.com.e95.entity.Merchandise</class>
+    <class>tw.com.e95.entity.Packet</class>
+    <class>tw.com.e95.entity.Shelf</class>
+    <class>tw.com.e95.entity.MerchandiseImage</class>
+    <class>tw.com.e95.entity.MerchandiseSpecification</class>
+    <class>tw.com.e95.entity.PacketStatus</class>
+    <class>tw.com.e95.entity.Mofo</class>
+    <class>tw.com.e95.entity.FrequentlyAskedQuestion</class>
+    <properties>
+      <property name="eclipselink.jdbc.native-sql" value="true"/>
+      <property name="eclipselink.weaving" value="static"/>
+    </properties>
+  </persistence-unit>
+</persistence>
